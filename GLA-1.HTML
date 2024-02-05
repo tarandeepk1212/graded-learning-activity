@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #A9A9A9;
+            margin: 10px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+           
+            const h1Element = document.createElement('h1');
+            h1Element.textContent = 'Tarandeep Kaur';
+            document.body.appendChild(h1Element);
+
+           
+            h1Element.style.textAlign = 'center';
+            h1Element.style.color = '#A9A9A9';
+
+            
+            const input1 = document.createElement('input');
+            const input2 = document.createElement('input');
+            const button = document.createElement('button');
+            const resultDiv = document.createElement('div');
+
+            input1.type = 'number';
+            input2.type = 'number';
+            button.textContent = 'Calculate Sum';
+
+            button.addEventListener('click', function () {
+                const sum = parseFloat(input1.value) + parseFloat(input2.value);
+                resultDiv.textContent = 'Sum: ' + sum;
+            });
+
+            document.body.appendChild(input1);
+            document.body.appendChild(input2);
+            document.body.appendChild(button);
+            document.body.appendChild(resultDiv);
+
+           
+            const validateInputs = (input) => {
+                try {
+                    if (isNaN(parseFloat(input.value))) {
+                        throw "Please enter a valid number";
+                    }
+
+                    input.style.border = '1px solid #ccc';
+
+                } catch (error) {
+                    resultDiv.textContent = error;
+                    input.style.border = '1px solid red';
+                }
+            };
+
+            input1.addEventListener('input', function () {
+                validateInputs(input1);
+            });
+
+            input2.addEventListener('input', function () {
+                validateInputs(input2);
+            });
+
+           
+            document.body.style.fontFamily = 'Arial, sans-serif';
+            document.body.style.backgroundColor = '#f2f2f2';
+            document.body.style.margin = '0';
+            document.body.style.padding = '20px';
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
